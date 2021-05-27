@@ -1,0 +1,26 @@
+  <!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand " href="#">Shoping</a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+               <!-- Dropdown -->
+               <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle  " >
+                    Mater data</a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" [routerLink]="'/category'">Category</a>
+                    <a class="dropdown-item waves-light" [routerLink]="'/brand'">Brand</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="'/products'" >Products List</a>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>
