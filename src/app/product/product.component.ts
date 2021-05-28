@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../category/addcategory/category.Model';
+import { BrandService } from '../services/brand.service';
 import { CategoryService } from '../services/category.service';
 
 @Component({
@@ -11,13 +12,17 @@ import { CategoryService } from '../services/category.service';
 })
 export class ProductComponent implements OnInit {
   categories:any;
+  brand:any;
   productObj: Product = new Product();
   constructor(private categoryservice: CategoryService,private readonly router: Router,
-    public httpObj:HttpClient) { }
+    public httpObj:HttpClient,
+    private brandservices: BrandService
+    ) { }
 
 
   ngOnInit(): void {
      this.retrive();
+     this.retrive1();
      console.log("hey");
   }
   retrive():void{
@@ -25,6 +30,18 @@ export class ProductComponent implements OnInit {
         .subscribe(
             (data)=>{
                 this.categories=data;
+                console.log(data);
+            },
+            (error)=>{
+                console.log(error);
+
+            });
+  }
+  retrive1():void{
+    this.brandservices.getAll()
+        .subscribe(
+            (data)=>{
+                this.brand=data;
                 console.log(data);
             },
             (error)=>{
