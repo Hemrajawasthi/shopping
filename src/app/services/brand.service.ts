@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-const baseUrl = 'https://localhost:44340/api/category';
+const baseUrl = 'https://localhost:44340/api/brand';
 
 @Injectable()
-export class CategoryService{
+export class BrandService{
 
     constructor(private http:HttpClient){
 

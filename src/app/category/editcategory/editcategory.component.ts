@@ -14,6 +14,7 @@ import { Category } from '../addcategory/category.Model';
 })
 export class EditCategoryComponent implements OnInit {
   categories:any;
+  messsage:any;
   categoryObj:Category = new Category();
 
   private routeSub: Subscription;
@@ -21,7 +22,7 @@ export class EditCategoryComponent implements OnInit {
   constructor(
     private categoryservice: CategoryService,
     private readonly router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
     ) { }
 
     currentcategories = null;
@@ -45,6 +46,21 @@ export class EditCategoryComponent implements OnInit {
 
     });
   }
+  Update(): void {
+
+    this.categoryservice.update(this.categoryObj.id, this.categoryObj)
+      .subscribe(
+        response => {
+          // console.log(response);
+          this.router.navigate(['/category']);
+        },
+        error => {
+          console.log(error);
+          this.router.navigate(['/category']);
+        });
+  }
+
+
 
   
   // retrive():void{

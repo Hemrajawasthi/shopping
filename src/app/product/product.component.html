@@ -1,1 +1,46 @@
-<p>product works!</p>
+<!-- <div class="container my-4 ">
+    <!-- <a class="btn btn-primary mb-3" [routerLink]="'/product'">Product</a> -->
+
+    <div class="border border-light p-3 mb-4">
+        <p class="text-center font-weight-bold">Add Products</p>
+        <form #myForm="ngForm"  class="form-group" novalidate>
+            <label for="" mt-3 >Product Name</label>
+            <input
+             type="text" 
+             required
+              minlength="3" 
+              maxlength="20" 
+               name="name" 
+               class="form-control"
+               [(ngModel)]="productObj.productName" 
+               >
+               <label for="" class="mt-3">Category</label>
+               <select name="wearType" id="" class="form-control" [(ngModel)]="productObj.categoryId">
+               <option *ngFor="let cat of categories"  [(ngModel)]="cat.id"  value="{{cat.id}}">{{cat.categoryName}}</option>
+
+                  
+               </select>
+
+            <label for="" class="mt-3" >Brand</label>
+            <select name="wearType" id="" class="form-control"  [(ngModel)]="productObj.brandId">
+                <option value="Male">Adidas</option>
+                <option value="Female">leves</option>
+            </select>
+
+            <label for="" mt-3 >Price</label>
+            <input
+             type="number" 
+             required
+              minlength="3" 
+              maxlength="20" 
+               name="name" 
+               class="form-control" 
+               [(ngModel)]="productObj.categoryId"
+               >
+
+            <label for=""  class="mt-3 mr-3">Is Active</label>
+            <input    type="checkbox" name="isActive" ><br>
+            <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+        </form>
+      </div>
+</div> 

@@ -1,12 +1,13 @@
 <div class="container">
     <a class="btn btn-primary mb-3" [routerLink]="'/add-category'">Add Category</a>
+
 <table class="table ">
   <thead>
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name of Category</th>
     <th scope="col">Wear Type</th>
-    <th scope="col">active</th>
+    <!-- <th scope="col">active</th> -->
 
     <th scope="col">Action?</th>
   </tr>
@@ -15,24 +16,19 @@
   <tr *ngFor="let category of categories; index as i">
     <th scope="row">{{ i + 1 }}</th>
     <td>
-      <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px"> -->
       {{ category.categoryName }}
     </td>
     <td>{{ category.wearType }}</td>
-    <td>{{ category.isActive }}</td>
+    <!-- <td>{{ category.isActive }}</td> -->
 
     <td>
         <a class="badge badge-warning" routerLink="/edit-category/{{ category.id }}">
             Edit
           </a>
-          <button class="badge badge-danger ml-2" (click)="deleteBtn()">
-            Delete
+        
+          <button class="badge badge-danger ml-2" (click)="Delete(category)">
+            Remove
           </button>
-   <!-- <button class="btn btn-sucess mb-3 mr-1" (click)="editBtn()">Edit</button> -->
-      <!--<button class="btn btn-sucess mb-3 mr-1" (click)="deleteBtn()">Delete</button> -->
-
-
-
     </td>
   </tr>
   </tbody>

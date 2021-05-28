@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from './category.Model';
 
@@ -12,11 +13,11 @@ import { Category } from './category.Model';
 export class AddCategoryComponent implements OnInit {
   categoryObj:Category = new Category();
 
-  
-
   submitted = false;
 
-  constructor(private categoryService: CategoryService, public httpObj:HttpClient,) { }
+  constructor(private categoryservice: CategoryService,
+    private readonly router: Router,
+     public httpObj:HttpClient,) { }
 
   ngOnInit(): void {
   }
@@ -28,47 +29,18 @@ export class AddCategoryComponent implements OnInit {
        res=>this.Error(res))
      ;
 
-   //https://localhost:44391/Customer/Submit
  }
  Success(res1:any){
    console.log("Sucessfully data inserted");
-  // this.customerObjs = res1;
+   this.router.navigate(['/category']);
   this.categoryObj = new Category();
-  // this.errors = []; //clear the errors messaage 
-  // alert(res1.customerName);
 }
 Error(res:any){
   console.log("Error");
+  this.router.navigate(['/category']);
   ;
 }
 saveCategory(){
 
 }
-  // saveCategory(): void {
-  //   const data = {
-  //     categoryName: this.category.categoryName,
-  //     wearType: this.category.wearType,
-  //     isActive: this.category.isActive
-  //   };
-
-  //   this.categoryService.create(data)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.submitted = true;
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-
-  // newTutorial(): void {
-  //   this.submitted = false;
-  //   this.category = {
-  //     categoryName: '',
-  //     wearType: '',
-  //   isActive: ''
-  //   };
-  // }
-
 }

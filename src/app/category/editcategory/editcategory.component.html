@@ -2,20 +2,29 @@
 
     <div class="border border-light p-3 mb-4">
         <p class="text-center font-weight-bold">Edit category</p>
-        <form   class="form-group">
+        <form   class="form-group" #myForm="ngForm" (ngSubmit)="Update()" novalidate>
+            <!-- <input type="hidden" value="{{categoryObj.id}}" class="form-control"> -->
                 <label for="" mt-3 >Category Name</label>
-                <input type="text"  name="name" id=" " value="{{categoryObj.categoryName}}" class="form-control">
+                <input type="text"  name="name" id=" "
+                 value="{{categoryObj.categoryName}}"
+                  class="form-control"
+                  required
+                  minlength="3" 
+                  maxlength="20"
+                  [(ngModel)]="categoryObj.categoryName"
+                  >
+
                 <label for="" class="mt-3">Wear Type</label>
-                <select value="{{categoryObj.wearType}}" name="wear" id="" class="form-control" >
+                <select value="{{categoryObj.wearType}}" [(ngModel)]="categoryObj.wearType" name="wear" id="" class="form-control" >
 
                     <option  value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
                            
                 <label for="" class="mt-3 mr-3">Is Active</label>
-                <input type="checkbox" value="{{categoryObj.isActive}}"><br>
+                <input  [(ngModel)]="categoryObj.isActive"  type="checkbox" name="isActive" ><br>
 
-            <button type="submit" class="btn btn-primary mt-3">Update Category</button>
+            <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary mt-3">Update Category</button>
         </form>
             
       </div>

@@ -15,6 +15,7 @@ import { CategoryService } from './services/category.service';
 import { AddbrandComponent } from './brand/addbrand/addbrand.component';
 import { EditbrandComponent } from './brand/editbrand/editbrand.component';
 import { FormsModule } from '@angular/forms';
+import { BrandService } from './services/brand.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormsModule } from '@angular/forms';
 
   ],
   providers: [
-    CategoryService
+    CategoryService,
+    BrandService
   ],
   bootstrap: [AppComponent]
 })
