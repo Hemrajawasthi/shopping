@@ -1,47 +1,41 @@
-<div class="container my-4 ">
-    <!-- <a class="btn btn-primary mb-3" [routerLink]="'/product'">Product</a> -->
+ <div class="container my-4 "> 
 
     <div class="border border-light p-3 mb-4">
         <p class="text-center font-weight-bold">Add Products</p>
-        <form #myForm="ngForm"  class="form-group" novalidate>
+        <form (ngSubmit)="Submit()"  class="form-group" novalidate>
             <label for="" mt-3 >Product Name</label>
             <input
+            [ngModelOptions]="{standalone: true}"
              type="text" 
-             required
-              minlength="3" 
-              maxlength="20" 
                name="name" 
                class="form-control"
                [(ngModel)]="productObj.productName" 
                >
                <label for="" class="mt-3">Category</label>
-               <select name="wearType" id="" class="form-control" [(ngModel)]="productObj.categoryId">
-               <option *ngFor="let cat of categories"  [(ngModel)]="cat.id"  value="{{cat.id}}">{{cat.categoryName}}</option>
-
-                
+               <select name="category"  class="form-control" [(ngModel)]="productObj.categoryId" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let cat of categories" [ngValue]="cat.id">{{cat.categoryName}}</option>
                </select>
 
             <label for="" class="mt-3" >Brand</label>
-            <select name="wearType" id="" class="form-control"  [(ngModel)]="productObj.brandId">
-               <option *ngFor="let bar of brand"  [(ngModel)]="bar.id"  value="{{bar.id}}">{{bar.brandName}}</option>
-
-               
+            <select name="brand"  class="form-control"  [(ngModel)]="productObj.brandId" [ngModelOptions]="{standalone: true}">
+               <option *ngFor="let bar of brand"  [ngValue]="bar.id">{{bar.brandName}}</option>
             </select>
 
             <label for="" mt-3 >Price</label>
             <input
+            [ngModelOptions]="{standalone: true}"
              type="number" 
-             required
-              minlength="3" 
-              maxlength="20" 
                name="name" 
                class="form-control" 
-               [(ngModel)]="productObj.categoryId"
+               [(ngModel)]="productObj.price"
                >
 
             <label for=""  class="mt-3 mr-3">Is Active</label>
-            <input    type="checkbox" name="isActive" ><br>
-            <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+            <input  [(ngModel)]="productObj.isActive"  type="checkbox" name="isActive" [ngModelOptions]="{standalone: true}"><br>
+            <button type="submit"  class="btn btn-primary mt-3">Add Product</button>
         </form>
       </div>
-</div>
+</div> 
+
+
+<app-productlist></app-productlist>

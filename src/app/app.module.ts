@@ -16,6 +16,7 @@ import { AddbrandComponent } from './brand/addbrand/addbrand.component';
 import { EditbrandComponent } from './brand/editbrand/editbrand.component';
 import { FormsModule } from '@angular/forms';
 import { BrandService } from './services/brand.service';
+import { ProductlistComponent } from './product/productlist/productlist.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BrandService } from './services/brand.service';
     AddCategoryComponent,
     EditCategoryComponent,
     AddbrandComponent,
-    EditbrandComponent
+    EditbrandComponent,
+    ProductlistComponent
    
   ],
   imports: [

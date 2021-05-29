@@ -7,12 +7,14 @@ import { EditCategoryComponent } from './category/editcategory/editcategory.comp
 import { ProductComponent } from './product/product.component';
 import { AddbrandComponent } from './brand/addbrand/addbrand.component';
 import { EditbrandComponent } from './brand/editbrand/editbrand.component';
+import { ProductlistComponent } from './product/productlist/productlist.component';
 
 const routes: Routes = [
   { path:  'category', component:  CategoryComponent},
-
+  { path:  'product-list', component:  ProductlistComponent},
+  
   { path:  'brand', component:  BrandComponent},
-  { path:  'products', component:  ProductComponent},
+  { path:  'product', component:  ProductComponent},
   { path:  'add-category', component:  AddCategoryComponent},
   { path:  'edit-category/:id', component:  EditCategoryComponent},
   { path:  'edit-brand/:id', component:  EditbrandComponent},

@@ -13,8 +13,14 @@ import { CategoryService } from '../services/category.service';
 export class ProductComponent implements OnInit {
   categories:any;
   brand:any;
-  productObj: Product = new Product();
-  constructor(private categoryservice: CategoryService,private readonly router: Router,
+  productObj:Product = new Product();
+  BrandID:number;
+  CatID:number;
+
+  submitted = false;
+  constructor(
+    private categoryservice: CategoryService,
+    private readonly router: Router,
     public httpObj:HttpClient,
     private brandservices: BrandService
     ) { }
@@ -23,7 +29,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
      this.retrive();
      this.retrive1();
-     console.log("hey");
   }
   retrive():void{
     this.categoryservice.getAll()
@@ -49,5 +54,30 @@ export class ProductComponent implements OnInit {
 
             });
   }
+  Submit(){
+    this.httpObj.post("https://localhost:44340/api/product"
+     ,this.productObj)
+     .subscribe(res=>this.Success(res),
+       res=>this.Error(res))
+     ;
+ }
 
+ Success(res1:any){
+  this.router.navigate(['/product']);
+
+ this.productObj = new Product();
+ this.refresh();
+ 
 }
+Error(res:any){
+ console.log("Error");
+ this.refresh();
+ 
+}
+
+refresh(): void {
+  window.location.reload();
+}
+}
+
+
