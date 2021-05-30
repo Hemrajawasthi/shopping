@@ -6,29 +6,23 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name of Brand</th>
+    <th scope="col">Category Name</th>
     <th scope="col">Code</th>
-    <!-- <th scope="col">active</th> -->
-
     <th scope="col">Action?</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let category of categories; index as i">
+  <tr *ngFor="let brand of categories; index as i">
     <th scope="row">{{ i + 1 }}</th>
+    <td>{{ brand.brandName }}</td>
+    <td>{{brand.categoryName}}</td>
+    <td>{{ brand.code }}</td>
     <td>
-      {{ category.brandName }}
-    </td>
-    <td>{{ category.code }}</td>
-    <!-- <td>{{ category.isActive }}</td> -->
-
-    <td>
-        <a class="badge badge-warning" routerLink="/edit-brand/{{ category.id }}">
-            Edit
-          </a>
+      <a class="badge badge-warning" routerLink="/edit-brand/{{ brand.id }}">
+        Edit
+      </a>
         
-          <button class="badge badge-danger ml-2" (click)="Delete(category)">
-            Remove
-          </button>
+          <button class="badge badge-danger ml-2" (click)="Delete(brand)"> Remove </button>
     </td>
   </tr>
   </tbody>

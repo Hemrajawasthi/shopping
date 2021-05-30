@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Product } from '../category/addcategory/category.Model';
 import { BrandService } from '../services/brand.service';
 import { CategoryService } from '../services/category.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -20,6 +21,7 @@ export class ProductComponent implements OnInit {
   submitted = false;
   constructor(
     private categoryservice: CategoryService,
+    private productservice: ProductService,
     private readonly router: Router,
     public httpObj:HttpClient,
     private brandservices: BrandService
@@ -78,6 +80,7 @@ Error(res:any){
 refresh(): void {
   window.location.reload();
 }
+
 }
 
 

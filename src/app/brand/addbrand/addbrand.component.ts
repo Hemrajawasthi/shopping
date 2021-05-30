@@ -10,10 +10,11 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./addbrand.component.css']
 })
 export class AddbrandComponent implements OnInit {
-  categories:any;
   
-  categoryObj:Category = new Category();
+  // categoryObj:Category = new Category();
   brandObj:Brand = new Brand();
+  brands:any;
+
   constructor(
     private categoryservice: CategoryService,private readonly router: Router,
     public httpObj:HttpClient
@@ -26,8 +27,8 @@ export class AddbrandComponent implements OnInit {
     this.categoryservice.getAll()
         .subscribe(
             (data)=>{
-                this.categories=data;
-                // console.log(data);
+                this.brands=data;
+                console.log(data);
             },
             (error)=>{
                 console.log(error);
@@ -46,7 +47,7 @@ export class AddbrandComponent implements OnInit {
  Success(res1:any){
   console.log("Sucessfully data inserted");
   this.router.navigate(['/brand']);
- this.categoryObj = new Category();
+ this.brandObj = new Brand();
 }
 Error(res:any){
  console.log("Error");

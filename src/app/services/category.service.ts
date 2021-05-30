@@ -14,10 +14,7 @@ export class CategoryService{
       return this.http.put(`${baseUrl}/${id}`, data);
     }
 
-    // getCourses(){
-    //     return ["course1","course2","course3"];
-    // }
-
+   
     get(id):Observable<any>{
         return this.http.get(`${baseUrl}/${id}`);
 

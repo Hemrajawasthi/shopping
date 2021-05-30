@@ -36,4 +36,22 @@ export class CategoryComponent implements OnInit {
             });
   }
 
+  Delete(obj): void{
+    obj.isActive = false;
+ 
+     this.categoryservice.update(obj.id, obj)
+    
+         .subscribe(
+           response => {
+             // console.log(response);
+             this.retrive();
+            
+           },
+           error => {
+             console.log(error);
+             this.retrive();
+           });
+ 
+   }
+
 }

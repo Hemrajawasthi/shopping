@@ -6,8 +6,9 @@ import {CategoryComponent} from './category/category/category.component';
 import { EditCategoryComponent } from './category/editcategory/editcategory.component';
 import { ProductComponent } from './product/product.component';
 import { AddbrandComponent } from './brand/addbrand/addbrand.component';
-import { EditbrandComponent } from './brand/editbrand/editbrand.component';
+import { EditBrandComponent } from './brand/editbrand/editbrand.component';
 import { ProductlistComponent } from './product/productlist/productlist.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
 
 const routes: Routes = [
   { path:  'category', component:  CategoryComponent},
@@ -17,10 +18,11 @@ const routes: Routes = [
   { path:  'product', component:  ProductComponent},
   { path:  'add-category', component:  AddCategoryComponent},
   { path:  'edit-category/:id', component:  EditCategoryComponent},
-  { path:  'edit-brand/:id', component:  EditbrandComponent},
+  { path:  'edit-brand/:id', component:  EditBrandComponent},
+  { path:  'edit-product/:id', component:  EditproductComponent},
+
 
   { path:  'add-brand', component:  AddbrandComponent},
-  { path:  'edit-brand', component:  EditbrandComponent},
 
 
   // { path: 'Customer', loadChildren: () => import('./category/category/category.module').then(m => m.CategoryModule) },

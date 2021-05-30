@@ -8,12 +8,13 @@ export class Category{
     isActive: boolean= true;
 
 
-    Brands:Array<Brand> = new Array<Brand>();
+    // Brands:Array<Brand> = new Array<Brand>();
 }
 
 export class Brand{
     id:number = 0;
     brandName:string = "";
+    categoryId:number=0;
     code:string = "";
     isActive: boolean= true;
 }

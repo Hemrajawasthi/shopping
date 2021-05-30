@@ -3,26 +3,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Brand } from 'src/app/category/addcategory/category.Model';
 import { BrandService } from 'src/app/services/brand.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-editbrand',
   templateUrl: './editbrand.component.html',
   styleUrls: ['./editbrand.component.css']
 })
-export class EditbrandComponent implements OnInit {
+export class EditBrandComponent implements OnInit {
   private routeSub: Subscription;
   brandObj:Brand = new Brand();
   brands:any;
   categories:any;
   constructor(
     private brandservices: BrandService,
+    private categoryservices: CategoryService,
     private readonly router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     this.retrive();
-    console.log("I am here");
     this.routeSub = this.route.params.subscribe(params => {
       // console.log(params) //log the entire params object
      console.log(params['id']) //log the value of id
@@ -60,9 +61,10 @@ export class EditbrandComponent implements OnInit {
  
    }
   retrive():void{
-    this.brandservices.getAll()
+    this.categoryservices.getAll()
         .subscribe(
             (data)=>{
+              console.log(data);
                 this.categories=data;
             },
             (error)=>{

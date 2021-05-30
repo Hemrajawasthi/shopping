@@ -13,10 +13,11 @@ import { EditCategoryComponent } from './category/editcategory/editcategory.comp
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryService } from './services/category.service';
 import { AddbrandComponent } from './brand/addbrand/addbrand.component';
-import { EditbrandComponent } from './brand/editbrand/editbrand.component';
+import { EditBrandComponent } from './brand/editbrand/editbrand.component';
 import { FormsModule } from '@angular/forms';
 import { BrandService } from './services/brand.service';
 import { ProductlistComponent } from './product/productlist/productlist.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,9 @@ import { ProductlistComponent } from './product/productlist/productlist.componen
     AddCategoryComponent,
     EditCategoryComponent,
     AddbrandComponent,
-    EditbrandComponent,
-    ProductlistComponent
+    EditBrandComponent,
+    ProductlistComponent,
+    EditproductComponent
    
   ],
   imports: [

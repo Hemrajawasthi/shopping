@@ -30,4 +30,21 @@ export class ProductlistComponent implements OnInit {
 
             });
   }
+  Delete(obj): void{
+    obj.isActive = false;
+  
+     this.productservice.update(obj.id, obj)
+    
+         .subscribe(
+           response => {
+             // console.log(response);
+             this.retrive();
+            
+           },
+           error => {
+             console.log(error);
+             this.retrive();
+           });
+  
+   }
 }
